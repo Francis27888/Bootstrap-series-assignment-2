@@ -1,0 +1,26 @@
+<h1> List of Blogs</h1>
+
+<p><%= notice %></p>
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Content</th>
+     <th colspan="3">Details</th>
+  </tr>
+<%@blogs.each do |blog|%>
+    <tr>
+        <td><%= blog.name%></td>
+        <td><%= blog.email%></td>
+        <td><%= blog.content%></td>
+        <td><%=link_to 'Details',blog_path(blog.id)%></td>
+        <td><%=link_to 'Edit',edit_blog_path(blog.id)%></td>
+        <td><%=link_to 'Delete',blog_path(blog.id),method: :delete,data:{confirm:'are you sure you want to delete?'}%></td>
+    </tr>
+    
+   
+<% end %>
+</table>
+<br>
+ <%= link_to 'Create new blog','/blogs/new'%>
+    <!--you can also use prefix like     <%= link_to 'Return to blog list page',new_blog_path%>-->

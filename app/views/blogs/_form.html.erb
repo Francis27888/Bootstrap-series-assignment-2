@@ -1,0 +1,33 @@
+<%= form_with(model: @blog,local: true, url: choose_new_or_edit ) do |f|%>
+    <% if @blog.errors.any? %>
+        <div class="error_explanation">
+            <h2><%= @blog.errors.count%> errors occured!!</h2>
+            <ul>
+                <% @blog.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end%>
+    <br>
+    <div class="blog_name">
+        <%= f.label:name %>
+        <%= f.text_field:name %>
+    </div>
+        <br> 
+    <div class="blog_email">
+        <%= f.label:email %>
+        <%= f.text_field:email %>
+    </div>
+        <br>
+    <div class="blog_content">
+        <%= f.label:content %>
+        <%= f.text_field:content %>
+    </div>
+        <br>  
+    <div>
+        <%= f.submit%>
+            <br> 
+        <%=link_to 'View list of blog',blogs_path %>
+    </div>
+<% end %>
