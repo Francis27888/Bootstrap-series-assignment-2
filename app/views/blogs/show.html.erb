@@ -2,3 +2,6 @@
 <p>Name: <%=@blog.name%></p>
 <p>Email: <%=@blog.email%></p>
 <p>Content: <%=@blog.content%></p>
+<%= form_with(model: @blog, url: blogs_path, local: true, method: 'get') do |form| %>
+<%= form.submit "Back", name: 'back' %>
+<%end%>
