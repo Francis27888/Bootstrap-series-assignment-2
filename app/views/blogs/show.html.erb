@@ -3,5 +3,5 @@
 <p>Email: <%=@blog.email%></p>
 <p>Content: <%=@blog.content%></p>
 <%= form_with(model: @blog, url: blogs_path, local: true, method: 'get') do |form| %>
-<%= form.submit "Back", name: 'back' %>
+<%= form.submit "Back", name: 'back' ,class:'btn btn-info'%>
 <%end%>

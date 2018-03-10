@@ -3,9 +3,12 @@ class BlogsController < ApplicationController
   def index
      @blogs=Blog.all
   end
+  def index1
+  
+  end
   def confirm
     @blog = Blog.new(blog_params)
-    render 'new' if @blog.invalid?
+    render new_blog_path if @blog.invalid?
   end
   def new
     if params[:back]

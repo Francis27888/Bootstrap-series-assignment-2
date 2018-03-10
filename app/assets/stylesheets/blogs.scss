@@ -1,3 +1,22 @@
 // Place all the styles related to the blogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.myTable{
+   background-color:#fff; 
+   padding:20px;
+//   width:600px;
+}
+@media only screen and (max-width: 575px) {
+    label {
+        text-align:left !important;
+    }
+}
+@media only screen and (max-width: 508px) {
+    .btn-save {
+        width:100px !important;
+    }
+    .btn-list{
+       width:150px !important;
+    }
+}

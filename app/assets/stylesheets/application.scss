@@ -1,0 +1,14 @@
+@import "bootstrap";
+@import "blogs";
+@import 'bootstrap/glyphicons';
+
+/*
+*= require material_icons
+*/
+
+body{
+    background-color:#e6ecf0 !important;
+}
+.container-fluid{
+    margin-top:100px;
+}

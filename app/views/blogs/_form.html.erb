@@ -10,24 +10,29 @@
         </div>
     <% end%>
     <br>
-    <div class="blog_name">
-        <%= f.label:name %>
-        <%= f.text_field:name %>
+    
+  <div class="field form-group row"><br>
+   <%= f.label:name, class: 'col-sm-2 control-label', style:'text-align:right;margin-top:7px' %>
+    <div class="col-sm-10">
+      <%= f.text_field:name, class: 'form-control' %>
     </div>
-        <br> 
-    <div class="blog_email">
-        <%= f.label:email %>
-        <%= f.text_field:email %>
+  </div>
+  <div class="field form-group row">
+    <%= f.label:email, class: 'col-sm-2 control-label', style:'text-align:right;margin-top:7px' %>
+    <div class="col-sm-10">
+      <%= f.text_field:email, class: 'form-control' %>
     </div>
-        <br>
-    <div class="blog_content">
-        <%= f.label:content %>
-        <%= f.text_field:content %>
+  </div>
+  <div class="field form-group row">
+    <%= f.label:content, class: 'col-sm-2 control-label', style:'text-align:right;margin-top:7px' %>
+    <div class="col-sm-10">
+      <%= f.text_area:content, class: 'form-control' %>
     </div>
-        <br>  
-    <div>
-        <%= f.submit%>
-            <br> 
-        <%=link_to 'View list of blog',blogs_path %>
-    </div>
+  </div>
+  <div style="text-align:center">
+      <%= link_to blogs_path , class: 'btn btn-success btn-list', style:'width:200px' do%>
+          <i class="glyphicon glyphicon-list"></i> View list of blog
+      <% end %>
+       <%= f.submit 'Save', class: 'btn btn-primary btn-save', style:'width:200px' %>
+  </div>
 <% end %>
