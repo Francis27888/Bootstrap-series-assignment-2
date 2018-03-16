@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show,:update,:destroy,:edit]
+  before_action :user_is_logged_in, only: [:new,:edit,:show]
   def index
      @blogs=Blog.all
   end
@@ -49,4 +50,5 @@ class BlogsController < ApplicationController
   def set_blog
     @blog =Blog.find(params[:id])
   end
+  
 end

@@ -1,0 +1,29 @@
+<br><br>
+<%= form_with(scope: :session, url: sessions_path) do |f| %>
+
+<div class="field form-group row"><br>
+   
+   <div class="col-sm-2">
+     </div>
+     <%= f.label :email, class: 'col-sm-2 control-label', style:'text-align:right;margin-top:7px' %>
+    <div class="col-sm-6">
+      <%= f.email_field :email, class: 'form-control' %>
+    </div>
+    <div class="col-sm-2">
+     </div>
+  </div>
+<div class="field form-group row"><br>
+<div class="col-sm-2">
+     </div>
+   <%= f.label :password, class: 'col-sm-2 control-label', style:'text-align:right;margin-top:7px' %>
+    <div class="col-sm-6">
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+    <div class="col-sm-2">
+     </div>
+  </div>
+ <div style="text-align:center">
+      <%= f.submit 'Log in', class: 'btn btn-primary btn-save', style:'width:300px;margin-left:200px' %>
+  </div>
+  
+<% end %>
