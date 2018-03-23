@@ -9,5 +9,8 @@ module SessionsHelper
     if current_user.nil?
         redirect_to sessions_new_path
     end
-  end
+ end
+# def create
+#   session[:current_user_id] = @user.id
+# end
 end

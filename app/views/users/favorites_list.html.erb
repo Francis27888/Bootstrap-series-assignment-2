@@ -1,0 +1,22 @@
+<div class="col">
+    
+</div>
+<div class="col">
+    
+            <% @blog.each do |b| %>
+                <div style="background-color:#fff;margin:20px 0px;width:100%;heigth:auto;padding:20px !important;">
+                       <label style="padding:10px 0px 0px 30px"><%= b.content%></label> <br>
+                       <%= link_to 'Cancel favorites', favorite_path(blog_id: b.id),method: :delete, class: 'btn btn-danger' %>
+                </div>
+                <% end %>  <br>
+            <div class="container pagination justify-content-center">
+              <%= paginate @blog , theme: 'twitter-bootstrap-4'%>
+            </div>
+            <div class="container pagination justify-content-center">
+                <%= link_to 'Back to the list of blogs', blogs_path, class: 'btn btn-success' %>
+            </div>
+            
+</div>
+<div class="col">
+    
+</div>

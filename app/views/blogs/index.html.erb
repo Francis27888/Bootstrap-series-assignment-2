@@ -1,6 +1,6 @@
 <h1 style="text-align:center"> List of Blogs</h1>
 
-<p><%= notice %></p>
+<!--<p><%= notice %></p>-->
 <div class="myTable">
 <table class="table table-bordered table-hover table-sm">
     <thead class="bg-light">
@@ -19,16 +19,33 @@
         <td><%= blog.name%></td>
         <td><%= blog.email%></td>
         <td><%= blog.content%></td>
-        <td style="text-align:center"><%=link_to blog_path(blog.id),class:'btn btn-info btn-sm' do %>
-            <i class="glyphicon glyphicon-eye-open"></i>
+        <td style="text-align:center">
+            
+                <%=link_to blog_path(blog.id),class:'btn btn-info btn-sm' do %>
+                   <i class="glyphicon glyphicon-eye-open"></i>
+                <% end %>
+           
+        </td>
+        <td style="text-align:center">
+            <% if blog.user_id==session[:user_id] %>
+                <%=link_to edit_blog_path(blog.id),class:'btn btn-info btn-sm' do%>
+                <i class="glyphicon glyphicon-pencil"></i>
+                <% end %>
+            <% else %>
+                <%=link_to edit_blog_path(blog.id),class:'btn btn-info btn-sm disabled' do%>
+                <i class="glyphicon glyphicon-pencil"></i>
+                <% end %>
             <% end %>
         </td>
-        <td style="text-align:center"><%=link_to edit_blog_path(blog.id),class:'btn btn-info btn-sm' do%>
-            <i class="glyphicon glyphicon-pencil"></i>
-            <% end %>
-        </td>
-        <td style="text-align:center"><%=link_to blog_path(blog.id),method: :delete,data:{confirm:'are you sure you want to delete?'},class:'btn btn-danger btn-sm' do%>
-            <i class="glyphicon glyphicon-trash"></i>
+        <td style="text-align:center">
+            <% if blog.user_id==session[:user_id] %>
+                <%=link_to blog_path(blog.id),method: :delete,data:{confirm:'are you sure you want to delete?'},class:'btn btn-danger btn-sm' do%>
+                <i class="glyphicon glyphicon-trash"></i>
+                <% end %>
+            <% else %>
+                <%=link_to blog_path(blog.id),method: :delete,data:{confirm:'are you sure you want to delete?'},class:'btn btn-danger btn-sm disabled' do%>
+                <i class="glyphicon glyphicon-trash"></i>
+                <% end %>
             <% end %>
         </td>
     </tr>
@@ -37,11 +54,18 @@
 <% end %>
 </tbody>
 </table>
+<div class="container pagination justify-content-center">
+              <%= paginate @blogs , theme: 'twitter-bootstrap-4'%>
+            </div>
 </div>
+
 <br>
 <div style="text-align:center">
  <%= link_to new_blog_path,class:'btn btn-success',style:'text-align:center;width:400px' do%>
      <i class="glyphicon glyphicon-plus"></i>  Create new blog
+ <% end %>
+ <%= link_to 'favorites/blogs/'+session[:user_id].to_s+'',class:'btn btn-info',style:'text-align:center;width:400px' do%>
+     <i class="glyphicon glyphicon-eye-open"></i>  View all your favorite blogs
  <% end %>
 </div>
     <!--you can also use prefix like     <%= link_to 'Return to blog list page',new_blog_path%>-->

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'users/new'
 
+   get 'favorites/blogs/:id'=> 'users#favorites_list'
+  
  root 'blogs#index1'
   resources :blogs do
      collection do
@@ -11,5 +13,5 @@ Rails.application.routes.draw do
   end
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
-
+  resources :favorites, only: [:create, :destroy]
 end
