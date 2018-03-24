@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show,:update,:destroy,:edit]
   before_action :user_is_logged_in, only: [:new,:edit,:show]
   def index
-     @blogs=Blog.all.page(params[:page]).per(4)
+     @blogs=Blog.all.page(params[:page]).per(3)
   end
   def index1
   
