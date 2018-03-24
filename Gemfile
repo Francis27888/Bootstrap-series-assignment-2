@@ -42,6 +42,8 @@ gem "bootstrap_form",
     branch: "master"
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
+gem 'dotenv-rails' ##Add
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -49,6 +51,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'letter_opener_web'
 end
 
 group :development do
