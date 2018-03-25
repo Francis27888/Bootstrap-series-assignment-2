@@ -27,7 +27,7 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -58,7 +58,7 @@ Rails.application.configure do
 {
  user_name: "apikey",
  password: "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",
- domain: "example.com",
+ domain: "bootstrap-series-assignment2-mukwiye.c9users.io",
  address: "smtp.SendGrid.net",
  port: 2525,
  authentication: :plain,
