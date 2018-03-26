@@ -1,6 +1,6 @@
 class Blog < ApplicationRecord
-    validates :name,presence:true
-    validates :email,presence:true
+    # validates :name,presence:true
+    # validates :email,presence:true
     validates :content,presence:true,length:{maximum:140}
     belongs_to :user
     has_many :favorites, dependent: :destroy

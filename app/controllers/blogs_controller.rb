@@ -2,7 +2,8 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show,:update,:destroy,:edit]
   before_action :user_is_logged_in, only: [:new,:edit,:show,:index]
   def index
-     @blogs=Blog.all.page(params[:page]).per(3)
+    # @blogs=Blog.all.page(params[:page]).per(3)
+     @blogs=Blog.joins("INNER JOIN users ON users.id = Blogs.user_id").select("Blogs.id,Blogs.user_id,users.name,users.email,Blogs.content").page(params[:page]).per(3)
   end
   def index1
   
@@ -48,7 +49,8 @@ class BlogsController < ApplicationController
   
   private 
   def blog_params
-    params.require(:blog).permit(:name,:email,:content).merge(user: current_user)
+    # params.require(:blog).permit(:name,:email,:content).merge(user: current_user)
+    params.require(:blog).permit(:content).merge(user: current_user)
   end
   
   def set_blog

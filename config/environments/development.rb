@@ -53,15 +53,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_mailer.default_url_options = { host: 'bootstrap-series-assignment2-mukwiye.c9users.io/' }
   config.action_mailer.delivery_method = :letter_opener
-   ActionMailer::Base.delivery_method = :smtp
- ActionMailer::Base.smtp_settings =
-{
- user_name: "apikey",
- password: "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",
- domain: "bootstrap-series-assignment2-mukwiye.c9users.io",
- address: "smtp.SendGrid.net",
- port: 2525,
- authentication: :plain,
- enable_starttls_auto: true
-}
+  
 end
