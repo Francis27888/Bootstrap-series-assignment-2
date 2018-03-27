@@ -11,22 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :contact_name %>
+  <div class="field form-group row">
+    <%= form.label :name, class: 'col-sm-2 control-label', style:'text-align:right;margin-top:7px' %>
+    <div class="col-sm-10">  
+      <%= form.text_field :name, id: :contact_name, class: 'form-control'%>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :contact_email %>
+  <div class="field form-group row">
+    <%= form.label :email, class: 'col-sm-2 control-label', style:'text-align:right;margin-top:7px'%>
+    <div class="col-sm-10">
+      <%= form.text_field :email, id: :contact_email, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, id: :contact_content %>
+  <div class="field form-group row">
+    <%= form.label :content, class: 'col-sm-2 control-label', style:'text-align:right;margin-top:7px'  %>
+    <div class="col-sm-10">
+      <%= form.text_area :content, id: :contact_content, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions" style="text-align:center">
+    <!--<%= link_to contacts_path , class: 'btn btn-success btn-list', style:'width:200px' do%>-->
+    <!--      <i class="glyphicon glyphicon-list"></i> List of contacts-->
+    <!--<% end %>-->
+    <%= form.submit 'Send' , class: 'btn btn-primary btn-save', style:'width:400px'%>
   </div>
 <% end %>

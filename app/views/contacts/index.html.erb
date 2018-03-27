@@ -2,13 +2,15 @@
 
 <h1>Contacts</h1>
 
-<table>
-  <thead>
+<div class="myTable">
+<table class="table table-bordered table-hover table-sm">
+   
+  <thead class="bg-light">
     <tr>
       <th>Name</th>
       <th>Email</th>
       <th>Content</th>
-      <th colspan="3"></th>
+      <th colspan="2">Options</th>
     </tr>
   </thead>
 
@@ -18,14 +20,30 @@
         <td><%= contact.name %></td>
         <td><%= contact.email %></td>
         <td><%= contact.content %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td style="text-align:center">
+            
+                <%=link_to contact,class:'btn btn-info btn-sm' do %>
+                   <i class="glyphicon glyphicon-eye-open"></i>
+                <% end %>
+           
+        </td>
+        <!--<td><%= link_to 'Edit', edit_contact_path(contact) %></td>-->
+        <td>
+        <%=link_to contact,method: :delete,data:{confirm:'Are you sure you want to delete?'},class:'btn btn-danger btn-sm' do%>
+                <i class="glyphicon glyphicon-trash"></i>
+                <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
+<div class="container pagination justify-content-center">
+              <%= paginate @contacts , theme: 'twitter-bootstrap-4'%>
+            </div>
 
-<%= link_to 'New Contact', new_contact_path %>
+<!--<div style="text-align:center">-->
+<!-- <%= link_to new_contact_path,class:'btn btn-success',style:'text-align:center;width:400px' do%>-->
+<!--     <i class="glyphicon glyphicon-plus"></i>  Create new blog-->
+<!-- <% end %>-->
