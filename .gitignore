@@ -19,4 +19,4 @@
 .byebug_history
 
 #dotenv-rails ##Add
-; /config/environment.rb
+/config/environment.rb
