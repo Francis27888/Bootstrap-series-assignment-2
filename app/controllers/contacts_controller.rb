@@ -25,8 +25,8 @@ class ContactsController < ApplicationController
   # POST /contacts.json
   def create
     @contact = Contact.new(contact_params)
-
-    respond_to do |format|
+    
+   respond_to do |format|
       if @contact.save
         ContactMailer.contact_mail(@contact).deliver_later
         format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
