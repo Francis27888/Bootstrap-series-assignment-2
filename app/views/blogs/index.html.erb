@@ -1,5 +1,5 @@
 <div style="text-align:right;margin-top:20px" class="container">
-    <p><b>Logged in user</b> <%=image_tag current_user.user_image_url(:thumb),style:'width:30px;margin-left:20px'%><%= current_user.email %></p>
+    <p><b>Logged in user</b> <%=image_tag(current_user.user_image_url(:thumb),style:'width:30px') if current_user.user_image?%><%= current_user.email %></p>
 </div>
 <h3 style="text-align:center"> List of Blogs</h3>
 
