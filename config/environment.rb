@@ -14,6 +14,3 @@ ActionMailer::Base.smtp_settings = {
   :authentication => :plain,
   :enable_starttls_auto => true
 }
-
-SENDGRID_USERNAME=apikey
-SENDGRID_PASSWORD=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
