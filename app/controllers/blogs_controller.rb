@@ -4,6 +4,7 @@ class BlogsController < ApplicationController
   def index
     # @blogs=Blog.all.page(params[:page]).per(3)
      @blogs=Blog.joins("INNER JOIN users ON users.id = Blogs.user_id").select("Blogs.id,Blogs.user_id,users.name,users.email,users.user_image,Blogs.content,Blogs.image").page(params[:page]).per(3)
+     
   end
   def index1
   
@@ -26,7 +27,9 @@ class BlogsController < ApplicationController
     @blog=Blog.new(blog_params)
     @blog.image.retrieve_from_cache! params[:cache][:image]
     # @blog.user_id=current_user
+    @user=User.find_by(id: session[:user_id])
     if @blog.save!
+      BlogMailer.blog_mail(@user).deliver_later
       redirect_to blogs_path, notice: "You have created new blog!"
     else
       render 'new'
