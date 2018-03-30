@@ -1,4 +1,4 @@
-<%= form_with(model: @blog,local: true, url: choose_new_or_edit ) do |f|%>
+<%= form_with(model: @blog,local: true,html: {multipart: true}, url: choose_new_or_edit ) do |f|%>
     <% if @blog.errors.any? %>
         <div class="error_explanation">
             <h2><%= @blog.errors.count%> errors occured!!</h2>
@@ -28,6 +28,11 @@
     <div class="col-sm-10">
       <%= f.text_area:content, class: 'form-control' %>
     </div>
+  </div>
+  <div class="field form-group row">
+    <%= f.label :image , class: 'col-sm-2 control-label', style:'text-align:right;margin-top:7px'%>
+    <%= f.file_field :image, id: :blog_image %>
+    <%= f.hidden_field :image_cache %>
   </div>
   <div style="text-align:center">
       <%= link_to blogs_path , class: 'btn btn-success btn-list', style:'width:200px' do%>

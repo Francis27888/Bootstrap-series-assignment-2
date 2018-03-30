@@ -1,7 +1,11 @@
 <h1>Blog details</h1>
-<p>Name: <%=@blog.name%></p>
-<p>Email: <%=@blog.email%></p>
+<!--<p>Name: <%=@blog.name%></p>-->
+<!--<p>Email: <%=@blog.email%></p>-->
 <p>Content: <%=@blog.content%></p>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @blog.image_url(:thumb) if @blog.image?%>
+</p>
 <%= form_with(model: @blog, url: blogs_path, local: true, method: 'get') do |form| %>
 <%= form.submit "Back", name: 'back' ,class:'btn btn-info',style:'float:left;margin-right:30px'%>
 <%end%>

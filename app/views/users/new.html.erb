@@ -10,7 +10,7 @@
   </div>
 <% end %>
 
-<%= form_with(model: @user, local: true) do |f| %>  
+<%= form_with(model: @user, html: {multipart: true}, local: true) do |f| %>  
 <div class="field form-group row"><br>
    
    <div class="col-sm-2">
@@ -56,6 +56,17 @@
     </div>
     <div class="col-sm-2">
      </div>
+  </div>
+  <div class="field form-group row"><br>
+    <div class="col-sm-2">
+       </div>
+       <%= f.label :user_image, class: 'col-sm-2 control-label', style:'text-align:right;margin-top:7px' %>
+      <div class="col-sm-6">
+        <%= f.file_field :user_image, id: :user_image_id  %>
+        <% f.hidden_field :user_image_cache%>
+      </div>
+      <div class="col-sm-2">
+       </div>
   </div>
   <div style="text-align:center">
       <%= f.submit 'Sign Up', class: 'btn btn-primary btn-save', style:'width:300px;margin-left:200px' %>

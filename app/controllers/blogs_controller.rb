@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :user_is_logged_in, only: [:new,:edit,:show,:index]
   def index
     # @blogs=Blog.all.page(params[:page]).per(3)
-     @blogs=Blog.joins("INNER JOIN users ON users.id = Blogs.user_id").select("Blogs.id,Blogs.user_id,users.name,users.email,Blogs.content").page(params[:page]).per(3)
+     @blogs=Blog.joins("INNER JOIN users ON users.id = Blogs.user_id").select("Blogs.id,Blogs.user_id,users.name,users.email,users.user_image,Blogs.content,Blogs.image").page(params[:page]).per(3)
   end
   def index1
   
@@ -24,6 +24,7 @@ class BlogsController < ApplicationController
     # @user = User.find(params[:session][:user_id])
     # user = User.find_by(email: params[:session][:email].downcase)
     @blog=Blog.new(blog_params)
+    @blog.image.retrieve_from_cache! params[:cache][:image]
     # @blog.user_id=current_user
     if @blog.save!
       redirect_to blogs_path, notice: "You have created new blog!"
@@ -50,7 +51,7 @@ class BlogsController < ApplicationController
   private 
   def blog_params
     # params.require(:blog).permit(:name,:email,:content).merge(user: current_user)
-    params.require(:blog).permit(:content).merge(user: current_user)
+    params.require(:blog).permit(:content, :image).merge(user: current_user)
   end
   
   def set_blog
