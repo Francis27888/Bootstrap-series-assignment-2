@@ -29,7 +29,7 @@ class BlogsController < ApplicationController
     # @blog.user_id=current_user
     @user =User.find_by(id: session[:user_id])
     if @blog.save
-      BlogMailer.blog_mail(@user).deliver_later
+      BlogMailer.blog_mail(@blog,@user).deliver_later
       redirect_to blogs_path, notice: "You have created new blog!"
     else
       render 'new'

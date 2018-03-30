@@ -1,6 +1,7 @@
 class BlogMailer < ApplicationMailer
-  def blog_mail(blog)
+  def blog_mail(blog,user)
     @blog=blog
-    mail(to: @blog.email,subject:"Blog created successfully!!!!")
+    @user=user
+    mail(to: @user.email,subject:"Blog created successfully!!!!")
   end
 end
