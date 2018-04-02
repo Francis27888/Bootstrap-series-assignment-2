@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
-    # <% @user=User.all.where(id: blog.user_id)%>
-    #     <%=image_tag @user.user_image_url(:thumb)%></td>
+    
   end
   def create
     @user = User.new(user_params)
